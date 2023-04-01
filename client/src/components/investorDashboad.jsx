@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import investorProfile from "./investorProfile";
 
 function InvestorDashboard() {
   const [developers, setDevelopers] = useState([]);
@@ -34,28 +35,29 @@ function InvestorDashboard() {
   }, []);
   
   return (
-    <div>
-      <h1>Investor Dashboard</h1>
-      <h2>Developers</h2>
-      <ul>
+    <div style={{ background: '#3F0E40', color: '#FFFFFF', padding: '20px' }}>
+      <h1 style={{ textAlign: 'center' }}>Investor Dashboard</h1>
+      <investorProfile />
+      <h2 style={{ marginBottom: '10px' }}>Developers</h2>
+      <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
         {developers.map(developer => (
-          <li key={developer.id}>
+          <li key={developer.id} style={{ marginBottom: '5px' }}>
             {developer.firstName} {developer.lastName}
           </li>
         ))}
       </ul>
-      <h2>Projects</h2>
-      <ul>
+      <h2 style={{ marginBottom: '10px' }}>Projects</h2>
+      <ul  style={{ listStyle: 'none', margin: '0', padding: '0' }}>
         {projects.map(project => (
-          <li key={project.id}>
+          <li key={project.id} style={{ marginBottom: '5px' }}>
             {project.name} - {project.description}
           </li>
         ))}
       </ul>
-      <h2>Ideas</h2>
-      <ul>
+      <h2 style={{ marginBottom: '10px' }}>Ideas</h2>
+      <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
         {ideas.map(idea => (
-          <li key={idea.id}>
+          <li key={idea.id} style={{ marginBottom: '5px' }}>
             {idea.name} - {idea.description}
           </li>
         ))}
