@@ -30,18 +30,18 @@ db.once("open", () => {
   console.log("Database Connection Established");
 });
 
-// socketIO.on("connection", (socket) => {
-//   console.log(`${socket.id} user just connected!`);
+socketIO.on("connection", (socket) => {
+  console.log(`${socket.id} user just connected!`);
 
-//   // listens and logs the message to the console
-//   socket.on("message", (data) => {
-//     socketIO.emit("messageResponse", data);
-//   });
+  // listens and logs the message to the console
+  socket.on("message", (data) => {
+    socketIO.emit("messageResponse", data);
+  });
 
-//   socket.on("disconnect", () => {
-//     console.log("A user disconnected");
-//   });
-// });
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
+  });
+});
 
 app.use(cors());
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+import SignUp from "./signup";
 import "./roles.css";
 
 const UserRole = () => {
@@ -8,60 +9,61 @@ const UserRole = () => {
     window.location.href = "/signup";
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [selectedOption, setSelectedOption] = useState(null)
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionChange = (e) => {
-    setSelectedOption(e.target.value)
-  }
+    setSelectedOption(e.target.value);
+  };
 
   const handleCreateAccount = () => {
-    navigate('/signup', {role: setSelectedOption})
-  }
+    navigate("/signup", { role: setSelectedOption });
+  };
 
-  const handleSubmit =  (e) => {
-    e.preventDefault()
-  }
- 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`selected option is ${selectedOption}`)    
+  };
+
   return (
     <div className="_container">
       <div className="main_content">
         <div className="_heading">Join as an Investor or a Developer</div>
         <form onSubmit={handleSubmit}>
-        <div className="_roles">
-          <div className="investor">
-            <div className="radio-select">
-              <input
-                type="radio"
-                value="investor"
-                name="role"
-                className="radio"
-                onChange={handleOptionChange}
-                checked={selectedOption === 'investor'}
-              />
+          <div className="_roles">
+            <div className="investor">
+              <div className="radio-select">
+                <input
+                  type="radio"
+                  value="investor"
+                  name="role"
+                  className="radio"
+                  onChange={handleOptionChange}
+                  checked={selectedOption === "investor"}
+                />
+              </div>
+              <div className="_content">
+                <p>I am an Investor, looking for Startups</p>
+              </div>
             </div>
-            <div className="_content">
-              <p>I am an Investor, looking for Startups</p>
-            </div>
-          </div>
 
-          <div className="developer">
-            <div className="_header">
-              <input
-                type="radio"
-                value="developer"
-                name="role"
-                className="radio"
-                onChange={handleOptionChange}
-                checked={selectedOption === 'developer'}
-              />
-            </div>
-            <div className="_content">
-              <p>I am a Developer, looking for funds</p>
+            <div className="developer">
+              <div className="_header">
+                <input
+                  type="radio"
+                  value="developer"
+                  name="role"
+                  className="radio"
+                  onChange={handleOptionChange}
+                  checked={selectedOption === "developer"}
+                />
+              </div>
+              <div className="_content">
+                <p>I am a Developer, looking for funds</p>
+              </div>
             </div>
           </div>
-        </div>
         </form>
         <button
           onClick={redirect}

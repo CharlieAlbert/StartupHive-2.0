@@ -6,10 +6,9 @@ const Gallery = (props) => {
     <div id="portfolio" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Gallery</h2>
+          <h2>Startups</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            View some of the popular startups that have been established through our platform
           </p>
         </div>
         <div className="row">

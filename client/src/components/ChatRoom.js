@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "./ChatRoom.css";
+// import "./ChatRoom.css";
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -85,6 +85,7 @@ function Superchat() {
       <form onSubmit={sendMessage}>
         <input
           value={formValue}
+          placeholder='Enter message...'
           onChange={(e) => setFormValue(e.target.value)}
         />
         <button type="submit" disabled={!formValue}>

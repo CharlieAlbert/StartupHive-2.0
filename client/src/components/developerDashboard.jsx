@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
-const DeveloperProfile = () => {
+const DeveloperDashboard = () => {
   const [portfolio, setPortfolio] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
@@ -105,4 +105,4 @@ const DeveloperProfile = () => {
   );
 };
 
-export default DeveloperProfile;
+export default DeveloperDashboard;

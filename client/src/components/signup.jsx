@@ -1,17 +1,11 @@
 import React, { useState } from "react";
+import "./signup.css";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import firebase from "firebase/compat/app";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
 import GoogleButton from "react-google-button";
 import MicrosoftLogin from "react-microsoft-login";
-import { useAuthState } from "react-firebase-hooks/auth";
 
-const SignUp = () => {
-
-  const [user] = useAuthState(auth);
-
+const SignUp = ({ selectedOption }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,7 +26,7 @@ const SignUp = () => {
       const response = await axios.post("/api/register", {
         email,
         password,
-        role: location.state ? location.state.role : null,
+        role: selectedOption,
       });
       console.log(response.data);
       navigate("/sidebar");
@@ -41,25 +35,6 @@ const SignUp = () => {
     }
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
-  };
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
   return (
     <div>
       <div className="limiter">
@@ -117,13 +92,11 @@ const SignUp = () => {
                 </button>
               </div>
 
-              {/* <div class="text-center p-t-46 p-b-20">
+              <div class="text-center p-t-46 p-b-20">
                 <span className="txt2">OR</span>
               </div>
 
-              <div class="login100-form-social flex-c-m signinbtn">
-                <GoogleButton onClick={signInWithGoogle} />
-              </div> */}
+              <div class="login100-form-social flex-c-m signinbtn"></div>
             </form>
             <div className="login-image login100-more"></div>
           </div>
