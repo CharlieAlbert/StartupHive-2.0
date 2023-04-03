@@ -12,14 +12,14 @@ const userProfile = new Schema(
       required: true,
     },
     email: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     phone: {
-      type: Number,
+      type: String,
     },
     mobile: {
-      type: Number,
+      type: String,
       required: true,
     },
     address: {
@@ -35,5 +35,5 @@ const userProfile = new Schema(
   { timestamps: true }
 );
 
-const UserProfile = ("userProfile", userProfile);
-module.export = UserProfile;
+const UserProfile = mongoose.model("UserProfile", userProfile);
+module.exports = UserProfile;

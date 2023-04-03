@@ -1,13 +1,37 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import GoogleButton from "react-google-button";
+import axios from "axios";
+import Cookies from "cookies-js";
 
 const Login = () => {
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("/api/login", {
+        email,
+        password,
+      });
+      const { message, token } = response.data;
+      if (message === "Password does not match") {
+        alert(message);
+      } else if (message === "No user found") {
+        console.log(message);
+      } else {
+        Cookies.set("authType", token, { expires: 216000 });
+        console.log(response.data.token);
+        navigate('/profile')
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred while logging in");
+    }
+  };
+  
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -52,20 +76,23 @@ const Login = () => {
                     type="checkbox"
                     name="remember-me"
                   />
-                  <label className="label-checkbox100 " for="ckb1">
+                  <label className="label-checkbox100 " htmlFor="ckb1">
                     Remember me
                   </label>
                 </div>
               </div>
 
               <div className="container-login100-form-btn">
-                <button class="btn btn-custom btn-lg page-scroll btn-login">
+                <button
+                  className="btn btn-custom btn-lg page-scroll btn-login"
+                  onClick={handleLogin}
+                >
                   Login
                 </button>
               </div>
 
-              <div class="text-center p-t-46 p-b-20">
-                <span className="txt2">OR</span>
+              <div className="text-center p-t-46 p-b-20">
+                <span className="txt2"></span>
               </div>
             </form>
 

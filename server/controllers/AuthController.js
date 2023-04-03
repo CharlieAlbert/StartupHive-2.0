@@ -54,7 +54,7 @@ const login = (req, res, next) => {
             });
             res.json({
               message: "Login succesful",
-              token,
+              token: token,
             });
           } else {
             res.json({
@@ -91,33 +91,29 @@ const profile = async (req, res, next) => {
   }
 };
 
-const user_update = (req, res, next) => {
-  const id = req.params.userId;
+const user_update = async (req, res) => {
+  const { username, fullname, email, role, mobile, phone, website } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({
-      message: "Invalid user id",
-    });
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        username,
+        fullname,
+        email,
+        role,
+        mobile,
+        phone,
+        website,
+      },
+      { new: true }
+    );
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
   }
-
-  User.findByIdAndUpdate(id, req.body, { new: true })
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({
-          message: "User not found",
-        });
-      }
-
-      res.status(200).json({
-        message: "Profile updated successfully",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
 };
 
 const user_delete = (req, res, next) => {

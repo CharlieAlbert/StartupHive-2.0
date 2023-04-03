@@ -29,7 +29,7 @@ const SignUp = ({ selectedOption }) => {
         role: selectedOption,
       });
       console.log(response.data);
-      navigate("/sidebar");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
     }

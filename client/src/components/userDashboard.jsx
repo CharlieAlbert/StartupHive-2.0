@@ -53,9 +53,22 @@ const UserProfile = () => {
         website,
       })
       .then((response) => {
+        // Update state with the new data
         setUserData(response.data);
         console.log(response.data);
         setIsEditing(false);
+
+        // Fetch the updated data from the server
+        axios
+          .get("/api/user_update")
+          .then((response) => {
+            // Update state with the retrieved data
+            setUserData(response.data);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
