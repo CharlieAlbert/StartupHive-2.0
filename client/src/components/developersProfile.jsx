@@ -1,72 +1,72 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const styles = {
   container: {
-    background: '#241f4e',
-    color: 'white',
-    padding: '20px',
-    borderRadius: '10px',
-    maxWidth: '600px',
-    margin: '0 auto',
+    background: "#241f4e",
+    color: "white",
+    padding: "20px",
+    borderRadius: "10px",
+    maxWidth: "600px",
+    margin: "0 auto",
   },
   form: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   label: {
-    display: 'block',
-    margin: '10px 0',
+    display: "block",
+    margin: "10px 0",
   },
   input: {
-    background: 'white',
-    color: '#241f4e',
-    border: 'none',
-    padding: '10px',
-    borderRadius: '5px',
-    marginBottom: '10px',
+    background: "white",
+    color: "#241f4e",
+    border: "none",
+    padding: "10px",
+    borderRadius: "5px",
+    marginBottom: "10px",
   },
   select: {
-    background: 'white',
-    color: '#241f4e',
-    border: 'none',
-    padding: '10px',
-    borderRadius: '5px',
-    marginBottom: '10px',
-    height: '100px',
+    background: "white",
+    color: "#241f4e",
+    border: "none",
+    padding: "10px",
+    borderRadius: "5px",
+    marginBottom: "10px",
+    height: "100px",
   },
   button: {
-    background: '#d78cff',
-    color: 'white',
-    border: 'none',
-    padding: '10px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    width: '100%',
-    marginTop: '20px',
+    background: "#d78cff",
+    color: "white",
+    border: "none",
+    padding: "10px",
+    borderRadius: "5px",
+    cursor: "pointer",
+    width: "100%",
+    marginTop: "20px",
   },
   link: {
-    color: '#d78cff',
-    textDecoration: 'none',
-    display: 'block',
-    marginBottom: '20px',
+    color: "#d78cff",
+    textDecoration: "none",
+    display: "block",
+    marginBottom: "20px",
   },
   heading: {
-    textAlign: 'center',
-    marginBottom: '20px',
+    textAlign: "center",
+    marginBottom: "20px",
   },
 };
 
 function DeveloperProfile() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [technologies, setTechnologies] = useState([]);
-  const [profilePicture, setProfilePicture] = useState('');
-  const [password, setPassword] = useState('');
-  const [isEditing,setIsEditing]= useState(true);
+  const [profilePicture, setProfilePicture] = useState("");
+  const [password, setPassword] = useState("");
+  const [isEditing, setIsEditing] = useState(true);
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -96,10 +96,12 @@ function DeveloperProfile() {
     setProfilePicture(event.target.value);
   };
 
-  
   // Function to handle changes to the technologies field
   const handleTechnologiesChange = (event) => {
-    const selectedTechnologies = Array.from(event.target.selectedOptions, option => option.value);
+    const selectedTechnologies = Array.from(
+      event.target.selectedOptions,
+      (option) => option.value
+    );
     setTechnologies(selectedTechnologies);
   };
   const handleSubmit = (event) => {
@@ -110,23 +112,26 @@ function DeveloperProfile() {
     console.log("Age:", age);
     console.log("Email:", email);
     console.log("Phone Number:", phoneNumber);
-    console.log("Technologies:",technologies)
+    console.log("Technologies:", technologies);
     console.log("Password:", password);
     console.log("Profile Picture:", profilePicture);
     setIsEditing(false);
-  
-
-    };
-    const handleEditProfile = (event) => {
-      event.preventDefault(); 
+  };
+  const handleEditProfile = (event) => {
+    event.preventDefault();
     setIsEditing(true);
     // TODO: Save form data to server
   };
-  
+
   return (
-    <div  style={{ backgroundColor: '#4A235A', color: '#fff', padding: '20px'}}>
-       <h1>Developer Profile</h1>
-       <Link  style={{ color: '#fff', textDecoration: 'none' }} to="/developerDashboard">Go to Dashboard</Link>
+    <div style={{ backgroundColor: "#4A235A", color: "#fff", padding: "20px" }}>
+      <h1>Developer Profile</h1>
+      <Link
+        style={{ color: "#fff", textDecoration: "none" }}
+        to="/developerDashboard"
+      >
+        Go to Dashboard
+      </Link>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
@@ -180,7 +185,11 @@ function DeveloperProfile() {
         <br />
         <label>
           Technologies:
-          <select multiple={true} value={technologies} onChange={handleTechnologiesChange}>
+          <select
+            multiple={true}
+            value={technologies}
+            onChange={handleTechnologiesChange}
+          >
             <option value="JavaScript">JavaScript</option>
             <option value="HTML">HTML</option>
             <option value="CSS">CSS</option>
@@ -192,11 +201,18 @@ function DeveloperProfile() {
         </label>
         <label>
           Profile Picture:
-          <input type="file" onChange={(event) => setProfilePicture(event.target.files[0])} />
+          <input
+            type="file"
+            onChange={(event) => setProfilePicture(event.target.files[0])}
+          />
         </label>
         <label>
           Password:
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </label>
         <button type="submit">Save Changes</button>
       </form>

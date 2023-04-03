@@ -3,6 +3,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SignUp from "./signup";
 import "./roles.css";
+import Cookies from "cookies-js";
 
 const UserRole = () => {
   const redirect = () => {
@@ -17,13 +18,15 @@ const UserRole = () => {
     setSelectedOption(e.target.value);
   };
 
+  console.log(selectedOption);
+
   const handleCreateAccount = () => {
     navigate("/signup", { role: setSelectedOption });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`selected option is ${selectedOption}`)    
+    console.log(`selected option is ${selectedOption}`);
   };
 
   return (
