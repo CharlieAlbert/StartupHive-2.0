@@ -17,6 +17,8 @@ const AuthRoute = require("./routes/auth");
 
 dotenv.config({ path: "./config/config.env" });
 
+MONGO_URI = process.env.MONGO_URI
+
 mongoose.connect(
   "mongodb+srv://node_crud:nderitucharles2002@cluster0.ah3dbr5.mongodb.net/api-node"
 );

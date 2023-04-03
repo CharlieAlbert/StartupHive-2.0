@@ -17,6 +17,8 @@ import SignUp from "./components/signup";
 import ChatRoom from "./components/ChatRoom";
 import DeveloperDashboard from "./components/developerDashboard";
 import InvestorDashboard from "./components/investorDashboad";
+import ProfilePage from "./components/userDashboard";
+import UserProfile from "./components/userDashboard";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -33,7 +35,7 @@ const App = () => {
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<DeveloperDashboard />} />
+          <Route exact path="/" element={<UserProfile />} />
           <Route exact path="/roles" element={<UserRole />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<SignUp />} />
