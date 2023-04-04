@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
 const User = require("../models/User");
-const UserProfile = require("../models/UserProfile");
+const Profile = require("../models/Profile");
 
 const register = (req, res, next) => {
   bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
@@ -73,21 +73,18 @@ const login = (req, res, next) => {
 
 const profile = async (req, res, next) => {
   try {
-    const user_profile = new UserProfile({
+    const user_profile = new Profile({
+      firstname: req.body.firstname,
+      middlename: req.body.middlename,
+      lastname: req.body.lastname,
       username: req.body.username,
-      fullname: req.body.username,
-      email: req.body.email,
-      phone: req.body.phone,
-      mobile: req.body.mobile,
-      address: req.body.address,
-      role: req.body.role,
-      website: req.body.website,
+      bio: req.body.bio,
     });
 
-    await user_profile.save();
-    res.send("Profile added successfully");
+    await investor_profile.save();
+    res.send("Investor profile added successfully");
   } catch (err) {
-    res.send("Profile not added");
+    res.send("Investor profile not added");
   }
 };
 
@@ -108,14 +105,12 @@ const user_update = async (req, res) => {
       },
       { new: true }
     );
-
     res.status(200).json(user);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
 const user_delete = (req, res, next) => {
   User.remove({ password: req.params.password })
     .exec()

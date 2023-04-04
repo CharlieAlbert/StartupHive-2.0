@@ -1,4 +1,4 @@
-.container {
+.container-dashboard {
     background-color: #EDF7FF;
     width: 100%;
 }
@@ -83,4 +83,15 @@ input {
 .status {
     display: flex;
     justify-content: end;
+}
+
+.pos {
+    color: #00ff00;
+}
+
+.neg {
+    color: red;
+}
+
+.projects-invested {
 }

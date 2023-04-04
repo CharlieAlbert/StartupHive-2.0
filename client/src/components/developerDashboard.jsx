@@ -10,52 +10,10 @@ import status60 from "./image/status60.png";
 import status40 from "./image/status40.png";
 import status10 from "./image/status10.png";
 
+
 const DeveloperDashboard = () => {
-
-  const [portfolio, setPortfolio] = useState("");
-  const [projectTitle, setProjectTitle] = useState("");
-  const [projectDescription, setProjectDescription] = useState("");
-  const [projectFiles, setProjectFiles] = useState([]);
-  const [stakeOffer, setStakeOffer] = useState("");
-  const [alert, setAlert] = useState(null);
-
-  const handlePortfolioChange = (e) => {
-    setPortfolio(e.target.value);
-  };
-
-  const handleProjectTitleChange = (e) => {
-    setProjectTitle(e.target.value);
-  };
-
-  const handleProjectDescriptionChange = (e) => {
-    setProjectDescription(e.target.value);
-  };
-
-  const handleProjectFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setProjectFiles(files);
-  };
-
-  const handleStakeOfferChange = (e) => {
-    setStakeOffer(e.target.value);
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    // Code to submit the form data to the server
-    setAlert("Your project has been successfully posted!");
-    // Clear the form
-    setPortfolio("");
-    setProjectTitle("");
-    setProjectDescription("");
-    setProjectFiles([]);
-    setStakeOffer("");
-  };
-
   return (
     <div>
-      
-
       <div className="container-fluid container">
         <div className="row">
           <div className="search p-3">
@@ -85,16 +43,16 @@ const DeveloperDashboard = () => {
                 <div className="row">
                   <div className="col-md-6 d-flex portfolio">
                     <div className="pie">
-                      <img src={pie} alt="pie" />
+                      <img src={pie} className="img-responsive" alt="pie" />
                     </div>
                     <div className="pie-content">
                       <ul>
                         <li>
-                          <img src={key1} className="key" alt="key" /> Complete
+                          <img src={key1} className="key img-responsive" alt="key" /> Complete
                           projects
                         </li>
                         <li>
-                          <img src={key2} className="key" alt="key" /> Pending
+                          <img src={key2} className="key img-responsive" alt="key" /> Pending
                           projects
                         </li>
                       </ul>
@@ -109,7 +67,7 @@ const DeveloperDashboard = () => {
         <div className="row row-lists">
           <div className="col-md-6">
             <div className="proposals work-space">
-              <div className="title pending">Pending Projects</div>
+              <div className="title pending">Projects Investments</div>
               <div className="title2 d-flex">Date</div>
               <div className="row list">
                 <div className="col-md-6">
@@ -141,19 +99,19 @@ const DeveloperDashboard = () => {
                 <div className="container-fluid">
                   <div className="row row3">
                       <div className="name">Venture Capitalist Workspace</div>
-                      <div className="status"><img src={status40} alt="status" /></div>
+                      <div className="status"><img src={status40} alt="status" className="img-responsive" /></div>
                   </div>
                   <div className="row row3">
                       <div className="name">Venture Capitalist Workspace</div>
-                      <div className="status"><img src={status10} alt="status" /></div>
+                      <div className="status"><img src={status10} alt="status" className="img-responsive" /></div>
                   </div>
                   <div className="row row3">
                       <div className="name">Venture Capitalist Workspace</div>
-                      <div className="status"><img src={status60} alt="status" /></div>
+                      <div className="status"><img src={status60} alt="status" className="img-responsive" /></div>
                   </div>
                   <div className="row row3">
                       <div className="name">Venture Capitalist Workspace</div>
-                      <div className="status"><img src={status40} alt="status" /></div>
+                      <div className="status"><img src={status40} className="img-responsive" alt="status" /></div>
                   </div>
                 </div>
               </div>

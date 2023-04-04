@@ -1,7 +1,7 @@
 import Image from "./image";
 import React from "react";
 
-const Projects = (props) => {
+const DeveloperProjects = (props) => {
   return (
     <div id="projects" className="text-center">
       <div className="container">
@@ -31,4 +31,4 @@ const Projects = (props) => {
   );
 };
 
-export default Projects;
+export default DeveloperProjects;

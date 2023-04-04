@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const UserProfile = require("./models/InvestorProfile");
 
 const app = express();
 
@@ -17,7 +18,7 @@ const AuthRoute = require("./routes/auth");
 
 dotenv.config({ path: "./config/config.env" });
 
-MONGO_URI = process.env.MONGO_URI
+MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(
   "mongodb+srv://node_crud:nderitucharles2002@cluster0.ah3dbr5.mongodb.net/api-node"
@@ -47,6 +48,24 @@ socketIO.on("connection", (socket) => {
 
 app.use(cors());
 
+// app.post('/api/user_profile', async(req, res)=>{
+//   // const profile = async (req, res, next) => {
+//     try {
+//       const user_profile = new UserProfile({
+//         firstname: req.body.firstname,
+//         middlename: req.body.middlename,
+//         lastname: req.body.lastname,
+//         username: req.body.username,
+//         bio: req.body.bio,
+//       });
+
+//       await user_profile.save();
+//       res.send("Profile added successfully");
+//     } catch (err) {
+//       res.send("Profile not added");
+//     }
+
+// })
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import GoogleButton from "react-google-button";
 import MicrosoftLogin from "react-microsoft-login";
+import Cookies from "cookies-js";
 
 const SignUp = ({ selectedOption }) => {
   const navigate = useNavigate();
@@ -20,8 +21,11 @@ const SignUp = ({ selectedOption }) => {
     setPassword(e.target.value);
   };
 
+  //Get cookie
+
   const handleSignup = async () => {
     console.log("Handle signup called");
+    const role = Cookies.get("role");
     try {
       const response = await axios.post("/api/register", {
         email,
@@ -29,7 +33,7 @@ const SignUp = ({ selectedOption }) => {
         role: selectedOption,
       });
       console.log(response.data);
-      navigate("/dashboard");
+      navigate("/developer-profile");
     } catch (error) {
       console.error(error);
     }

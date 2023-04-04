@@ -27,6 +27,8 @@ const UserRole = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`selected option is ${selectedOption}`);
+        //Set cookie
+        Cookies.set('role', selectedOption, {expires: 216000});
   };
 
   return (

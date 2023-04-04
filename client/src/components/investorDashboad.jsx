@@ -74,7 +74,7 @@ function InvestorDashboard() {
         </ul>
       </div>
 
-      <div className="container-fluid container">
+      <div className="container-fluid container-dashboard">
         <div className="row">
           <div className="search p-3">
             <div className="search-content">
@@ -128,25 +128,25 @@ function InvestorDashboard() {
         <div className="row row-lists">
           <div className="col-md-6">
             <div className="proposals work-space">
-              <div className="title pending">Pending Proposals</div>
-              <div className="title2 d-flex">Date</div>
+              <div className="title pending">Popular Projects</div>
+              <div className="title2 d-flex">Stake rate</div>
               <div className="row list">
                 <div className="col-md-6">
                   <ul>
                     <li className="proposal-list">
                       Hospital Management System
                     </li>
-                    <li className="proposal-list">Venture Capital Workspace</li>
-                    <li className="proposal-list">Venture Capital Workspace</li>
+                    <li className="proposal-list">Augmented Reality Tool</li>
+                    <li className="proposal-list">Cloud-based Cryptocurrency platform</li>
                     <li className="proposal-list">Venture Capital Workspace</li>
                   </ul>
                 </div>
                 <div className="col-md-6">
                   <ul>
-                    <li className="proposal-list date">12th Sep 2023</li>
-                    <li className="proposal-list date">12th Sep 2023</li>
-                    <li className="proposal-list date">12th Sep 2023</li>
-                    <li className="proposal-list date">12th Sep 2023</li>
+                    <li className="proposal-list date pos">+127%</li>
+                    <li className="proposal-list date pos">+110%</li>
+                    <li className="proposal-list date pos">+101%</li>
+                    <li className="proposal-list date neg">-89%</li>
                   </ul>
                 </div>
               </div>
@@ -159,11 +159,11 @@ function InvestorDashboard() {
               <div className="row list">
                 <div className="container-fluid">
                   <div className="row row3">
-                      <div className="name">Venture Capitalist Workspace</div>
+                      <div className="name">E-commerce site</div>
                       <div className="status"><img src={status40} alt="status" /></div>
                   </div>
                   <div className="row row3">
-                      <div className="name">Venture Capitalist Workspace</div>
+                      <div className="name">Health and Wellness app</div>
                       <div className="status"><img src={status10} alt="status" /></div>
                   </div>
                   <div className="row row3">
@@ -171,7 +171,7 @@ function InvestorDashboard() {
                       <div className="status"><img src={status60} alt="status" /></div>
                   </div>
                   <div className="row row3">
-                      <div className="name">Venture Capitalist Workspace</div>
+                      <div className="name">Cloud based project management tool</div>
                       <div className="status"><img src={status40} alt="status" /></div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-// import "./ChatRoom.css";
+import "./ChatRoom.css";
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -74,7 +74,7 @@ function Superchat() {
   };
 
   return (
-    <>
+    <div className="body-chat">
       <main>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
@@ -82,7 +82,7 @@ function Superchat() {
         <span ref={dummy}></span>
       </main>
 
-      <form onSubmit={sendMessage}>
+      <form className="form" onSubmit={sendMessage}>
         <input
           value={formValue}
           placeholder='Enter message...'
@@ -92,7 +92,7 @@ function Superchat() {
           Send
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
@@ -103,8 +103,8 @@ function ChatMessage(props) {
 
   return (
     <div className={`message ${messageClass}`}>
-      <img src={photoURL} />
-      <p>{text}</p>
+      <img className="photourl" src={photoURL} />
+      <p className="text-message">{text}</p>
     </div>
   );
 }
