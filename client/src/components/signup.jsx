@@ -22,21 +22,29 @@ const SignUp = ({ selectedOption }) => {
   };
 
   //Get cookie
+  const role = Cookies.get("role");
 
   const handleSignup = async () => {
-    console.log("Handle signup called");
-    const role = Cookies.get("role");
+    Cookies.set("email", email, { expires: 216000 });
+
+    if (role == "investor") {
+      window.location.href = "/investorProfile";
+    } else {
+      window.location.href = "/developersProfile";
+    }
+
+    /*
     try {
       const response = await axios.post("/api/register", {
         email,
         password,
         role: selectedOption,
       });
-      console.log(response.data);
-      navigate("/developer-profile");
+      
     } catch (error) {
       console.error(error);
     }
+    */
   };
 
   return (
@@ -89,7 +97,6 @@ const SignUp = ({ selectedOption }) => {
                 <button
                   type="button"
                   onClick={handleSignup}
-                  disabled={!email || !password}
                   className="btn btn-custom btn-lg page-scroll btn-login"
                 >
                   Sign Up

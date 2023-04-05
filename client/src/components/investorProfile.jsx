@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Projects from "./projects";
 import JsonData from "../data/data.json";
 import axios from "axios";
+import Cookies from "cookies-js";
 
 const InvestorProfilePage = () => {
   const [firstname, setFirstName] = useState("");
@@ -57,6 +58,30 @@ const InvestorProfilePage = () => {
   useEffect(() => {
     setInvestorProfilePage(JsonData);
   }, []);
+
+  var fname;
+  var lname;
+  var mname;
+  var uname;
+  var email;
+  var userbio;
+
+  const editProfile = () => {
+    Cookies.set("fname", firstname, { expires: 216000 });
+    Cookies.set("lname", lastname, { expires: 216000 });
+    Cookies.set("mname", middlename, { expires: 216000 });
+    Cookies.set("username", username, { expires: 216000 });
+    Cookies.set("email", email, { expires: 216000 });
+    Cookies.set("bio", bio, { expires: 216000 });
+    window.location.href='/investorProfile';
+  };
+
+    fname = Cookies.get("fname");
+    lname = Cookies.get("lname");
+    mname = Cookies.get("mname");
+    email = Cookies.get("email");
+    userbio = Cookies.get("bio");
+    uname = Cookies.get("username");
 
   return (
     <div className="container-fluid">
@@ -126,13 +151,15 @@ const InvestorProfilePage = () => {
                   onChange={handleBio}
                 />
               </div>
-              <button type="submit">Edit</button>
               <div className="form-group">
                 <label htmlFor="investedProjects">
                   Invested Projects:&nbsp;
                 </label>
                 {investedProjects}
               </div>
+              <button type="submit" onClick={editProfile}>
+                Edit Profile
+              </button>
             </div>
           </div>
         </form>
@@ -143,6 +170,43 @@ const InvestorProfilePage = () => {
               Dashboard
             </div>
           </Link>
+          <div className="userDetails">
+            <span>
+              <b>FirstName:</b> {fname}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>MiddleName:</b> {mname}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>LastName:</b> {lname}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>username:</b> {uname}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>Bio:</b> {userbio}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>Email:</b> {email}
+            </span>
+            <br />
+            <br />
+            <span>
+              <b>Invested Projects:</b> {8}
+            </span>
+            <br />
+            <br />
+          </div>
         </div>
       </div>
       <Projects data={investorProfilePage.Projects} />

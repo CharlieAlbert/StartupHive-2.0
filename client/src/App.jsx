@@ -17,7 +17,7 @@ import InvestorDashboard from "./components/investorDashboad";
 import UserProfile from "./components/userDashboard";
 import DeveloperProfile from "./components/developersProfile";
 import InvestorProfilePage from "./components/investorProfile";
-
+import DeveloperProfilePage from "./components/developersProfile";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -39,10 +39,26 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/chat" element={<ChatRoom />} />
-          <Route exact path="/developer-dashboard" element={<DeveloperDashboard />} />
-          <Route exact path="/investor-dashboard" element={<InvestorDashboard />} />
-          <Route exact path="/investor-profile" element={<InvestorProfilePage />} />
-          <Route exact path="/developer-profile" element={<DeveloperProfile />} />
+          <Route
+            exact
+            path="/developer-dashboard"
+            element={<DeveloperDashboard />}
+          />
+          <Route
+            exact
+            path="/investor-dashboard"
+            element={<InvestorDashboard />}
+          />
+          <Route
+            exact
+            path="/investorProfile"
+            element={<InvestorProfilePage />}
+          />
+          <Route
+            exact
+            path="/developersProfile"
+            element={<DeveloperProfilePage />}
+          />
         </Routes>
       </Router>
     </div>

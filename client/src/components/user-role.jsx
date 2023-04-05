@@ -7,6 +7,7 @@ import Cookies from "cookies-js";
 
 const UserRole = () => {
   const redirect = () => {
+    Cookies.set("role", selectedOption, { expires: 216000 });
     window.location.href = "/signup";
   };
 
@@ -26,9 +27,7 @@ const UserRole = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`selected option is ${selectedOption}`);
-        //Set cookie
-        Cookies.set('role', selectedOption, {expires: 216000});
+    //Set cookie
   };
 
   return (
