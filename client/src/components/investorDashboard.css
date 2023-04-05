@@ -1,97 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container-dashboard {
-    background-color: #EDF7FF;
-    width: 100%;
+  background-color: #edf7ff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .work-space {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px 20px;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 20px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 .row1 {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .search {
-    /* background-color: #ececec; */
-    color: black;
-    margin: 5px;
-    display: flex;
-    justify-content: end;
+  /* background-color: #ececec; */
+  color: black;
+  margin: 5px;
+  display: flex;
+  justify-content: end;
 }
 
 .title2 {
-    display: flex;
-    justify-content: end;
-    margin: 10px 5px;
+  display: flex;
+  justify-content: end;
+  margin: 10px 5px;
 }
 
 .proposal-list {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 input {
-    border-radius: 3px;
-    padding: 5px;
+  border-radius: 3px;
+  padding: 5px;
 }
 
 .search-content {
-    border: 1px solid black;
-    padding-left: 5px;
-    border-radius: 3px;
+  border: 1px solid black;
+  padding-left: 5px;
+  border-radius: 3px;
 }
 
 .key {
-    margin: 0;
+  margin: 0;
 }
 
 .portfolio {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .title {
-    color: black;
+  color: black;
 }
 
 .row-lists {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .pending {
-    border-bottom: 1px solid black;
-    padding: 0 0 15px 0;
+  border-bottom: 1px solid black;
+  padding: 0 0 15px 0;
 }
 
 .date {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .row3 {
-    margin: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .status {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .pos {
-    color: #00ff00;
+  color: #00ff00;
 }
 
 .neg {
-    color: red;
+  color: red;
 }
 
-.projects-invested {
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:hover {
+  background-color: #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.input-table {
+  background-color: #eeeeee;
+  margin: 20px 0;
+  color: black;
 }

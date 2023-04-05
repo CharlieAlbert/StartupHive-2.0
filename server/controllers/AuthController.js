@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
 const User = require("../models/User");
-const Profile = require("../models/Profile");
 
 const register = (req, res, next) => {
   bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
@@ -71,23 +70,6 @@ const login = (req, res, next) => {
   );
 };
 
-const profile = async (req, res, next) => {
-  try {
-    const user_profile = new Profile({
-      firstname: req.body.firstname,
-      middlename: req.body.middlename,
-      lastname: req.body.lastname,
-      username: req.body.username,
-      bio: req.body.bio,
-    });
-
-    await investor_profile.save();
-    res.send("Investor profile added successfully");
-  } catch (err) {
-    res.send("Investor profile not added");
-  }
-};
-
 const user_update = async (req, res) => {
   const { username, fullname, email, role, mobile, phone, website } = req.body;
 
@@ -123,4 +105,4 @@ const user_delete = (req, res, next) => {
     });
 };
 
-module.exports = { register, login, profile, user_update, user_delete };
+module.exports = { register, login, user_update, user_delete };

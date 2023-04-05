@@ -9,8 +9,12 @@ import key2 from "./image/key2.png";
 import status60 from "./image/status60.png";
 import status40 from "./image/status40.png";
 import status10 from "./image/status10.png";
+import data from "./data";
 
 function InvestorDashboard() {
+  const [search, setSearch] = useState("");
+  console.log(search);
+
   const [developers, setDevelopers] = useState([]);
   const [projects, setProjects] = useState([]);
   const [ideas, setIdeas] = useState([]);
@@ -75,15 +79,6 @@ function InvestorDashboard() {
       </div>
 
       <div className="container-fluid container-dashboard">
-        <div className="row">
-          <div className="search p-3">
-            <div className="search-content">
-              <i className="fa fa-search"></i>
-              <input type="text" placeholder="Search..." />
-              <button>Search</button>
-            </div>
-          </div>
-        </div>
         <div className="row row1">
           <div className="col-md-8">
             <div className="investment-track work-space">
@@ -137,7 +132,9 @@ function InvestorDashboard() {
                       Hospital Management System
                     </li>
                     <li className="proposal-list">Augmented Reality Tool</li>
-                    <li className="proposal-list">Cloud-based Cryptocurrency platform</li>
+                    <li className="proposal-list">
+                      Cloud-based Cryptocurrency platform
+                    </li>
                     <li className="proposal-list">Venture Capital Workspace</li>
                   </ul>
                 </div>
@@ -159,24 +156,76 @@ function InvestorDashboard() {
               <div className="row list">
                 <div className="container-fluid">
                   <div className="row row3">
-                      <div className="name">E-commerce site</div>
-                      <div className="status"><img src={status40} alt="status" /></div>
+                    <div className="name">E-commerce site</div>
+                    <div className="status">
+                      <img src={status40} alt="status" />
+                    </div>
                   </div>
                   <div className="row row3">
-                      <div className="name">Health and Wellness app</div>
-                      <div className="status"><img src={status10} alt="status" /></div>
+                    <div className="name">Health and Wellness app</div>
+                    <div className="status">
+                      <img src={status10} alt="status" />
+                    </div>
                   </div>
                   <div className="row row3">
-                      <div className="name">Venture Capitalist Workspace</div>
-                      <div className="status"><img src={status60} alt="status" /></div>
+                    <div className="name">Venture Capitalist Workspace</div>
+                    <div className="status">
+                      <img src={status60} alt="status" />
+                    </div>
                   </div>
                   <div className="row row3">
-                      <div className="name">Cloud based project management tool</div>
-                      <div className="status"><img src={status40} alt="status" /></div>
+                    <div className="name">
+                      Cloud based project management tool
+                    </div>
+                    <div className="status">
+                      <img src={status40} alt="status" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="queries">
+        <div className="container">
+          <h1 className="text-center my-4">Search for Developers</h1>
+          <div>
+            <input
+              type="text"
+              placeholder="Search Developers"
+              onChange={(e) => setSearch(e.target.value)}
+              className="input-table"
+            />
+          </div>
+          <div>
+            <table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data
+                  .filter((item) => {
+                    return search.toLowerCase() === ""
+                      ? item
+                      : item.first_name.toLowerCase().includes(search);
+                  })
+                  .map((item) => (
+                    <tr key={item.id}>
+                      <td>{item.first_name}</td>
+                      <td>{item.last_name}</td>
+                      <td>{item.email}</td>
+                      <td>{item.phone}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
